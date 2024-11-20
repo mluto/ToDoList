@@ -1,0 +1,36 @@
+﻿<Window x:Class="ToDoList.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Todo List" Height="350" Width="610
+        ">
+    <Grid>
+        <StackPanel>
+            <DatePicker Name="TaskDatePicker" SelectedDateChanged="TaskDatePicker_SelectedDateChanged"/>
+            <ListView Name="TaskListView" SelectionMode="Single" MouseDoubleClick="TaskListView_MouseDoubleClick">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}" Width="200"/>
+                        <GridViewColumn Header="Due Date" DisplayMemberBinding="{Binding DueDate}" Width="150"/>
+                        <GridViewColumn Header="Completed" Width="100">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox IsChecked="{Binding IsCompleted, Mode=TwoWay}" 
+                                  Checked="CheckBox_Checked" 
+                                  Unchecked="CheckBox_Unchecked"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+        
+        <Button Name="AddButton" Content="Add Task" Click="AddButton_Click" Height="NaN" Margin="0,285,410,0" Width="180"/>
+        <Button Name="EditButton" Content="Edit Task" Click="EditButton_Click" Height="NaN" Margin="205,285,205,0" Width="180"/>
+        <Button Name="DeleteButton" Content="Delete Task" Click="DeleteButton_Click" Height="NaN" Margin="410,285,0,0" Width="180"/>
+        
+    </Grid>
+  
+</Window>
+    
+    
